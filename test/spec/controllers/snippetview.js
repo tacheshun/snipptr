@@ -1,22 +1,24 @@
 'use strict';
 
-describe('Controller: SnippetviewCtrl', function () {
+describe('Controller: SnippetViewCtrl', function () {
 
   // load the controller's module
   beforeEach(module('snpApp'));
 
-  var SnippetviewCtrl,
+  var SnippetViewCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-      SnippetviewCtrl = $controller('SnippetviewCtrl', {
+      SnippetViewCtrl = $controller('SnippetViewCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
+    it('default html should contain a link to Snippets page', inject(function ($compile) {
+        scope.$digest();
+        var href = document.getElementsByTagName("a")[0].getAttribute("href");
+        expect(href).toBe('#/');
+    }));
 });
