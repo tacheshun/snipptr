@@ -12,10 +12,10 @@ app.factory('Snippet', function ($firebaseArray, FIREBASE_URL) {
         create: function (snippet) {
             return snippets.$add(snippet);
         },
-        get: function (snippetId) {
-            return $firebase(ref.child('snippets').child(snippetId)).$asObject();
+        get: function (snippet) {
+            return snippets.$getRecord(snippet);
         },
-        delete: function (snippet) {
+        remove: function (snippet) {
             return snippets.$remove(snippet);
         }
     };

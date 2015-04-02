@@ -1,19 +1,18 @@
 'use strict';
 
-app.controller('SnippetsCtrl', function ($scope, Snippet) {
+app.controller('SnippetsCtrl', function ($scope, $location, Snippet) {
 
     $scope.snippets = Snippet.all;
-
-    $scope.snippet = {title: '', description: "", author: "", url: ""};
+    $scope.snippet = {title: '', description: "", author: ""};
 
     $scope.submitSnippet = function () {
-        Snippet.create($scope.snippet).then(function () {
-            $scope.snippet = {title: '', description: "", author: "", url: ""};
+        Snippet.create($scope.snippet).then(function (ref) {
+            $location.path('/snippets/' + ref.name());
         });
     };
 
-    $scope.deletePost = function (snippet) {
-        Snippet.delete(snippet);
+    $scope.deleteSnippet = function (snippet) {
+        Snippet.remove(snippet);
     };
 
 });

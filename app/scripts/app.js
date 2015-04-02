@@ -12,14 +12,22 @@ var app = angular
         'ngTouch',
         'firebase'
     ])
-    .constant('FIREBASE_URL', 'https://kohala.firebaseIO.com/')
+    .constant('FIREBASE_URL', 'https://kohala.firebaseio.com/')
     .config(function ($routeProvider) {
         $routeProvider
-          .when('/', {
-            templateUrl: 'views/add-snippet.html',
+        .when('/', {
+            templateUrl: 'views/snippets.html',
             controller: 'SnippetsCtrl'
           })
-          .otherwise({
+        .when('/snippets/:snippetId', {
+            templateUrl: 'views/snippet-view.html',
+            controller: 'SnippetViewCtrl'
+        })
+        .when('/about', {
+            templateUrl: 'views/about.html',
+            controller: 'SnippetViewCtrl'
+        })
+        .otherwise({
             redirectTo: '/'
         });
     });

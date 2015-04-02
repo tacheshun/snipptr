@@ -1,1 +1,49 @@
-{{ awesomeThings }}
+<div class="panel-heading"><h2>List of snippets</h2></div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Submitted by</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody ng-repeat="snippet in snippets">
+        <td>{{ snippet.id }}</a></td>
+        <td><a ng-href="#/snippets/{{ snippet.$id }}">{{ snippet.title }}</a></td>
+        <td>{{ snippet.author }}</td>
+        <td><button class="btn btn-danger" ng-click="deleteSnippet(snippet)">Delete snippet</button></td>
+    </tbody>
+</table>
+<div class="panel panel-default">
+    <div class="panel-body">
+<h3>Add new snippet</h3>
+<form name="add-snippet" class="form-horizontal" role="form" ng-submit="submitSnippet()">
+    <div class="form-group">
+
+        <label class="control-label col-sm-2" for="title">Title:</label>
+        <div class="col-sm-6">
+            <input class="form-control" type="text" id="title" name="title" ng-model="snippet.title" placeholder="Enter Title" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="author">Author:</label>
+        <div class="col-sm-6">
+        <input class="form-control" type="text" id="author" name="author" ng-model="snippet.author" placeholder="Enter Author" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="description">Description:</label>
+        <div class="col-sm-6">
+        <textarea class="form-control" id="description" name="description" ng-model="snippet.description" placeholder="Enter Description" required></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn btn-primary" class="btn btn-primary">Add Snippet</button>
+        </div>
+    </div>
+</form>
+</div>
+</div>
