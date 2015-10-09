@@ -10,5 +10,6 @@ Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
 [![volkswagen status](https://auchenberg.github.io/volkswagen/volkswargen_ci.svg?v=1)](https://github.com/auchenberg/volkswagen)
+
 Running `grunt test` will run the unit tests with karma.
 
