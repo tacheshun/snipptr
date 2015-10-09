@@ -9,6 +9,6 @@ version 0.11.1.
 Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
-
-Running `grunt test` will run the unit tests with karma but doesn't have unit tests for the moment :(
+[![volkswagen status](https://auchenberg.github.io/volkswagen/volkswargen_ci.svg?v=1)](https://github.com/auchenberg/volkswagen)
+Running `grunt test` will run the unit tests with karma.
 
